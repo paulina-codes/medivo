@@ -4,6 +4,12 @@
 
 **Gesundheit, die sich deinem Alltag anpasst.**
 
+daptive WebApp für Menschen mit chronischen Erkrankungen: Symptome, Medikamente und Termine dokumentieren, in einer Oberfläche, die sich an unterschiedliche Bedürfnisse anpasst.
+
+**[Live-Demo ausprobieren](https://paulina-codes.github.io/portfolio/medivo-demo/)** · [Projektseite](https://paulina-codes.github.io/portfolio/tracker.html) · [Portfolio](https://paulina-codes.github.io/portfolio/)
+
+![Medivo Dashboard](docs/medivo-dashboard.webp)
+
 Medivo ist ein persönliches Softwareprojekt im Bereich der Medizinischen Informatik. Ziel ist die Entwicklung einer adaptiven Webanwendung, die Menschen mit chronischen Erkrankungen bei der strukturierten Dokumentation ihrer Gesundheit und der Organisation ihres Alltags unterstützt.
 
 Im Mittelpunkt steht ein nutzerzentrierter Ansatz: Statt allen Nutzer:innen dieselbe Oberfläche vorzugeben, soll sich Medivo an unterschiedliche kognitive, körperliche und motivationale Bedürfnisse anpassen.
