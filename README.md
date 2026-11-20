@@ -1,53 +1,48 @@
-# Medivo
+# Medivo – UI-Prototyp v0.2
 
-**Gesundheit, die sich deinem Alltag anpasst.**
+Interaktiver Frontend-Entwurf für ein adaptives Gesundheitsmanagement. React, TypeScript, Vite, Lucide Icons und eigenes CSS.
 
-Adaptive WebApp für Menschen mit chronischen Erkrankungen: Symptome, Medikamente und Termine dokumentieren, in einer Oberfläche, die sich an unterschiedliche Bedürfnisse anpasst.
+## Start
 
-### → [Live-Demo öffnen](https://paulina-codes.github.io/portfolio/medivo-demo/)
+1. Node.js LTS installieren.
+2. Terminal im Projektordner öffnen.
+3. `npm install`
+4. `npm run dev`
+5. Die angezeigte lokale URL im Browser öffnen.
 
-Läuft direkt im Browser, ohne Installation oder Anmeldung. Alle Daten sind fiktiv.
+## Veröffentlichung
 
-![Medivo Dashboard mit Tagesaufgaben, Fortschritt und Wochenübersicht](docs/medivo-dashboard.webp)
+`npm run build` erzeugt den Ordner `dist/`. Diesen kannst du bei einem statischen Hoster veröffentlichen. GitHub Pages erfordert bei einem Projekt-Repository eine passende `base`-Konfiguration in Vite oder einen eigenen Domain-Root.
 
-> **Status: frühe Entwicklungsphase.** Medivo ist ein Frontend-Prototyp ohne Backend und ohne Datenspeicherung. Oberfläche und Funktionsumfang können sich noch deutlich ändern, die Icons und Illustrationen werden voraussichtlich neu gezeichnet. Medivo ist kein Medizinprodukt und nicht für reale Gesundheitsdaten vorgesehen.
+## Aufbau
 
-## Idee
+| Datei | Inhalt |
+|---|---|
+| `src/main.tsx` | App, Onboarding (Start → Login → Modus) und alle Seiten |
+| `src/illustrations.tsx` | Gezeichnete Illustrationen als SVG-Komponenten (Katze, Modus-Motive, Symptome …) |
+| `src/style.css` | Design-Tokens, Layout, Modi, Dark Mode, Responsive, Druck |
 
-Viele Menschen mit chronischen Erkrankungen sollen ihren Zustand regelmäßig dokumentieren, brechen das aber schnell ab. Medivo soll dabei motivieren und sich an die Person anpassen: Sieben Darstellungsmodi (z. B. Senioren, Minimal, Autismus) verändern Farben, Schriftgröße und Informationsdichte.
+### Illustrationen austauschen
 
-## Im Prototyp umgesetzt
+Alle Illustrationen sind React-Komponenten in `src/illustrations.tsx`. Eine eigene Zeichnung lässt sich direkt einsetzen: SVG exportieren, z. B. nach `src/assets/cat.svg`, und die Komponente `Cat` ersetzen:
 
-- Täglicher Check-in zu Stimmung, Medikamenten, Symptomen, Trinkmenge und Verdauung
-- Symptome mit Intensität, Medikamente mit Dosierung und Uhrzeit
-- Vorlagen für häufige Erkrankungen, z. B. Migräne, Diabetes Typ 1, Rheuma
-- Druckbare Arztzusammenfassung mit wählbarem Zeitraum
-- Sieben Darstellungsmodi und Dark Mode, responsiv für Smartphone und Desktop
-
-## Geplant
-
-- Verläufe und Diagramme zu Symptomen und Einnahmen
-- Backend mit Spring Boot und PostgreSQL, sichere Anmeldung
-- Datenschutzkonzept mit Export- und Löschfunktion
-- Mehrsprachige Oberfläche
-- Usability-Tests mit verschiedenen Nutzergruppen
-
-## Technik
-
-React · TypeScript · Vite · Figma (Konzept)
-
-<details>
-<summary>Lokal starten (für Entwickler:innen)</summary>
-
-Voraussetzung: Node.js (LTS)
-
-```bash
-npm install
-npm run dev
+```tsx
+import catUrl from './assets/cat.svg';
+export const Cat = ({ size = 128, className = '' }: IllProps & { mood?: CatMood }) =>
+  <img src={catUrl} width={size} height={size} className={`ill ${className}`} alt="" />;
 ```
 
-</details>
+Für verschiedene Stimmungen (`happy`, `cheer`, `sleepy`) je eine Datei anlegen und per `mood` auswählen.
 
-## Kontakt
+## Status und Einschränkungen
 
-Paulina Kranewitter · [Portfolio](https://paulina-codes.github.io/portfolio/) · [paulina.kranewitter@web.de](mailto:paulina.kranewitter@web.de)
+- Alle Einträge sind **fiktive Demo-Daten**.
+- Änderungen werden **nicht gespeichert** und verschwinden beim Neuladen.
+- Kein Backend, keine echte Anmeldung, keine echte Benachrichtigung, keine medizinische Auswertung.
+- Die Sprachwahl ist vorbereitet, die Texte sind derzeit Deutsch.
+- Die Berichtsvorschau ist ein Demo-Ausdruck, keine medizinisch validierte Zusammenfassung.
+- Nicht als datenschutzkonformes Produkt oder Medizinprodukt freigegeben.
+
+## Nächste Schritte
+
+Routing, Formularvalidierung, Internationalisierung, Accessibility-Tests, sichere Authentifizierung, API-Schnittstellen, PostgreSQL, Spring Boot, Einwilligungs- und Löschkonzept.
