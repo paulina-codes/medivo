@@ -1,4 +1,4 @@
-# Medivo – UI-Prototyp v0.2
+# Medivo - UI-Prototyp v0.2
 
 Interaktiver Frontend-Entwurf für ein adaptives Gesundheitsmanagement. React, TypeScript, Vite, Lucide Icons und eigenes CSS.
 
